@@ -19,9 +19,14 @@ class Library
   }
 
   // Retrieve book information
-  String getBookInfo() 
+  String getBookInfo({required String title}) 
   {
-  
+    if (books.containsKey(title)) 
+    {
+      return books[title]!.toString();
+    }
+
+    return "Book not found.";
   }
 
   // List all books, with ability to filter by genre
