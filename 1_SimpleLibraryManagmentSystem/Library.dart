@@ -30,9 +30,30 @@ class Library
   }
 
   // List all books, with ability to filter by genre
-  void listAllBooks() 
+  void listAllBooks({String? genre}) 
   {
+    if(books.isEmpty)
+    {
+      print("No books found.");
+    }
     
+    if(genre == null)
+    {
+      books.forEach((key, value) 
+      {
+        print(value);
+      });
+    } 
+    else
+    {
+      books.forEach((key, value) 
+      {
+        if(value.genre == genre)
+        {
+          print(value);
+        }
+      });
+    }
   }
 
   // List books by genre
