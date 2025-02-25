@@ -67,12 +67,17 @@ class Library
   }
 
   // Remove a book
-  bool removeBook({required String title}) 
+  String removeBook({required String title}) 
   {
+    if (books.isEmpty) 
+    {
+      return "No books found.";
+    }
+
     if (books.remove(title) != null) 
     {
-      return true;
+      return "Book removed successfully.";
     }
-    return false;
+    return "Book with title '$title' was not found.";
   }
 }
