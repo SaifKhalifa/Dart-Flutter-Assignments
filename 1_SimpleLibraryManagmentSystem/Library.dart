@@ -57,9 +57,13 @@ class Library
   }
 
   // List books by genre
-  void listBooksByGenre() 
+  List<String> listBooksByGenre({required String genre}) 
   {
-    
+    var filteredBooks = books.values
+        .where((book) => book.genre == genre)
+        .map((book) => book.title)
+        .toList();
+    return filteredBooks.isEmpty ? ["No books found for this genre."] : filteredBooks;
   }
 
   // Remove a book
