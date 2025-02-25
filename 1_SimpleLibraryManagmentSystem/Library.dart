@@ -36,7 +36,7 @@ class Library
     {
       print("No books found.");
     }
-    
+
     if(genre == null)
     {
       books.forEach((key, value) 
@@ -63,8 +63,12 @@ class Library
   }
 
   // Remove a book
-  bool removeBook() 
+  bool removeBook({required String title}) 
   {
-  
+    if (books.remove(title) != null) 
+    {
+      return true;
+    }
+    return false;
   }
 }
