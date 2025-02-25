@@ -1,10 +1,21 @@
+import 'Book.dart';
+
 class Library 
 {
+  final Map<String, Book> books = {};
 
   // Add a book to the library
-  void addBook() 
+  void addBook(
+    {
+      required String title,
+      String author = 'Unknown Author',
+      String genre = 'Unknown Genre',
+      int year = 0
+    }
+  )  
   {
-    
+    books[title] = Book(title: title, author: author, year: year, genre: genre);
+    print("Book added successfully.");
   }
 
   // Retrieve book information
